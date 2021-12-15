@@ -1,0 +1,28 @@
+[
+    {
+        "nama": "Rani",
+        "jenis roti": [
+            2,
+            1
+        ],
+        "jumlah": [
+            1,
+            3
+        ],
+        "total": 15000,
+        "kembalian": 15000
+    },
+    {
+        "nama": "Shafa",
+        "jenis roti": [
+            2,
+            1
+        ],
+        "jumlah": [
+            1,
+            5
+        ],
+        "total": 15000,
+        "kembalian": 35000
+    }
+]
