@@ -1,25 +1,25 @@
 import os, json
 
-datamenu = 'datamenu.json'
+datamenu = 'dataMenu.json'
 
 def clearSystem():
     os.system('cls')
 
-def r_data():
+
+def r_dataMenu():
     with open(datamenu, 'r') as data:
         return json.load(data)
 
+
 def create(jenis, harga):
     clearSystem()
-    print('-'*5,'Menambah Menu','-'*5)
     tmp,ket_roti = [],{}
-
     try:
-        with open(datamenu, 'r') as data:
-            reader =  json.load(data)
-            tmp=reader
-    except:
-        pass
+        reader =  r_dataMenu()
+        tmp=reader
+    except: pass
+    
+    print('-'*5,'Menambah Menu','-'*5)
 
     ket_roti['jenis'] = jenis
     ket_roti['harga'] = harga
@@ -32,33 +32,33 @@ def create(jenis, harga):
     print ('Menu telah ditambahkan')
     input('Enter untuk kembali')
 
-# create('a', 123, r_data())
+
 def read():
     try:
         with open(datamenu, 'r') as data:
-            reader =  json.load(data)
-    except:
-        pass
+            reader = json.load(data)
+    except: pass
+
     print('-'*30)
     print(f"{'No.':^3} {'Jenis':^15} {'Harga':^12}")
     print('-'*30)
     a=0
     for i in range(len(reader)):
         print(f"{i+1:^3} {reader[i]['jenis']:^15} {reader[i]['harga']:^12}")
-        # print(i['jenis'])
+        
     
 def update():
     clearSystem()
     try:
         with open(datamenu, 'r') as data:
-            reader =  json.load(data)
-    except:
-        pass
+            reader = json.load(data)
+    except: pass
+
     print('-'*5,'Mengubah Menu','-'*5)
     tmp,ket_roti = [],{}
     tmp = reader
     read()
-    # print('\n')
+
     indx =  int(input('Nomor menu : '))
     print('''--- yang akan diedit ---
 1. Jenis
@@ -96,9 +96,9 @@ def delete():
     clearSystem()
     try:
         with open(datamenu, 'r') as data:
-            reader =  json.load(data)
-    except:
-        pass
+            reader = json.load(data)
+    except: pass
+    
     print('-'*5,'Menghapus Menu','-'*5)
     read()
     # print('\n')
@@ -115,9 +115,4 @@ def delete():
     if q == 'n':
         pass
 
-    # input('Enter untuk kembali')
 
-
-
-# x=r_data()
-# print(x)

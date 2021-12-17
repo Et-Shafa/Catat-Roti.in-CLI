@@ -1,27 +1,26 @@
-import os, json, crudMenu
+import os, json
 
 datatransaksi= 'dataTransaksi.json'
+
 
 def clearSystem():
     os.system('cls')
 
-# def r_data():
-#         with open(datatransaksi, 'r') as data:
-#             return json.load(data)
+
+def r_dataTransaksi():
+        with open(datatransaksi, 'r') as data:
+            return json.load(data)
 
 
 def createTransaksi(nama, jenis, jumlah, total, kembalian):
     clearSystem()
-    print('-'*5,'Menambah Transaksi','-'*5)
     tmp,ket_trans = [],{}
-    
-    
     try:
-        with open(datatransaksi, 'r') as data:
-            reader =  json.load(data)
-            tmp=reader
+        reader = r_dataTransaksi()
+        tmp=reader
     except: pass
-
+    
+    print('-'*5,'Menambah Transaksi','-'*5)
     ket_trans['nama'] = nama
     ket_trans['jenis roti'] = jenis
     ket_trans['jumlah'] = jumlah
@@ -39,12 +38,11 @@ def createTransaksi(nama, jenis, jumlah, total, kembalian):
 
 def readTransaksi():
     clearSystem()
-    print('-'*5,'Melihat Transaksi','-'*5)
     try:
-        with open(datatransaksi, 'r') as data:
-            reader =  json.load(data)
-    except:
-        pass
+        reader = r_dataTransaksi()
+    except: pass
+
+    print('-'*5,'Melihat Transaksi','-'*5)
     print('-'*30)
     print(f"{'No.':^3} {'Nama':^15} {'Total':^12}") #{'Jumlah':^15} {'Total':^12}")
     print('-'*30)
@@ -54,4 +52,3 @@ def readTransaksi():
         # print(i['jenis'])
     input('Enter untuk kembali')
 
-# readTransaksi()

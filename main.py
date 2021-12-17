@@ -35,7 +35,7 @@ while not selesai:
         a=0
         for i in jenis:
             # print(jenis, jumlah)
-            total = total + (crudMenu.r_data()[i-1]['harga']*jumlah[a])
+            total = total + (crudMenu.r_dataMenu()[i-1]['harga']*jumlah[a])
         bayar = int(input('Dibayar : '))
         kembalian = bayar-total
         crudTransaksi.createTransaksi(nama, jenis, jumlah, total, kembalian)
